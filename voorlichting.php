@@ -1,10 +1,12 @@
 <head>
+    <!-- includes -->
     <?php
     include "includes/header.php";
     include "includes/navbar.php";
     ?>
 </head>
 <div class="uitlegtitel">
+    <!-- gehele voorlichting -->
     <h1>Voorlichting</h1></br>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </br>
         Suspendisse consequat vel tortor id mattis.
