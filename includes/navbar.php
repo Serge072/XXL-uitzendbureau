@@ -1,9 +1,3 @@
-<!-- includes -->
-<?php
-include "includes/header.php";
-session_start();
-?>
-
 <body>
     <!-- logo in navbar linking to homepage/index -->
     <nav class="navbar navbar-expand-sm bg-light">
@@ -62,10 +56,6 @@ session_start();
             </ul>
     </nav>
     <?php endif; ?>
-    <!-- footer -->
-    <?php
-    include "includes/footer.php";
-    ?>
 </body>
 
 </html>
