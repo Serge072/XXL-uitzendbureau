@@ -1,0 +1,19 @@
+.JobDescription {
+    resize: none;
+}
+
+.sm-margin-top {
+    margin-top: 10px;
+}
+
+.m-margin-top {
+    margin-top: 25px;
+}
+
+.sm-padding-bottom {
+    padding-bottom: 10px;
+}
+
+.m-padding-bottom {
+    padding-bottom: 25px;
+}
