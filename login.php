@@ -13,7 +13,6 @@ include("includes/databaselink.php");
 
 <form action="login.php" method="post">
   <label for="username">Username:</label><br>
-  <input type="text" id="username" name="username"><br>
   <label for="password">Password:</label><br>
   <input type="password" id="password" name="password"><br><br>
   <input type="submit" value="Submit">
@@ -28,6 +27,7 @@ include("includes/databaselink.php");
     // Get the submitted username and password
     $username = $conn->real_escape_string($_POST['username']);
     $password = $conn->real_escape_string($_POST['password']);
+    $permission = $conn->real_escape_string($_POST['permissions']);
 
     // Query the database to see if the username and password are correct
     $query = "SELECT * FROM users WHERE username = '$username' AND password = '$password'";
@@ -38,6 +38,7 @@ include("includes/databaselink.php");
       // Set the session variables
       $_SESSION['username'] = $username;
       $_SESSION['logged_in'] = true;
+      $_SESSION['permission'] = $permission;
 
       // Redirect to the dashboard
       header('Location: index.php');
