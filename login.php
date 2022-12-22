@@ -28,7 +28,6 @@ include("includes/conn.php");
     // Get the submitted Email and password
     $email = $conn->real_escape_string($_POST['email']);
     $password = $conn->real_escape_string($_POST['password']);
-    $permission = $conn->real_escape_string($_POST['permissions']);
 
     // Query the database to see if the Email and password are correct
     $query = "SELECT * FROM users WHERE email = '$email' AND password = '$password'";
@@ -37,9 +36,11 @@ include("includes/conn.php");
     // If the query returns a row, the login was successful
     if ($result->num_rows == 1) {
       // Set the session variables
-      $_SESSION['email'] = $email;
-      $_SESSION['logged_in'] = true;
-      $_SESSION['permission'] = $permission;
+      while($row = $result->fetch_assoc()) {
+        $_SESSION['email'] = $row["email"];
+        $_SESSION['logged_in'] = true;
+        $_SESSION['permission'] = $row["permissions"];
+      }
 
       // Redirect to the dashboard
       header('Location: index.php');

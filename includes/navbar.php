@@ -1,3 +1,7 @@
+<?php
+include_once 'includes/conn.php';
+session_start();
+?>
 <!-- Navbar -->
 <nav class="navbar navbar-expand-sm bg-light">
   <nav class="navbar navbar-expand-lg navbar-light bg-light"></a>
@@ -7,7 +11,7 @@
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-
+    
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <!-- link to homepage -->
@@ -25,23 +29,41 @@
       </ul>
     </div>
   </nav>
+  
+  <?php
+  // checks if $_SESSION['company'] esists
+  if (isset($_SESSION['permission'])) {
+    // check if $_SESSION['company'] = company
+    if ($_SESSION["permission"] == 'company') {
+      echo '<li class="nav item"><a href="voorlichting.php">Vactuur</a></li>';
+    }
+  }
+  ?>
+  
   <!-- if logged in show profile / logout -->
-  <?php if (isset($_SESSION["username"])): ?>
-  <li class="navbar-nav ms-auto">
+  <?php
+  if (isset($_SESSION['email'])) {
+    echo '  <li class="navbar-nav ms-auto">
     <a class="nav-link" href="profiel.php">Profiel</a>
   </li>
   <li class="nav-item active">
     <a class="nav-link" href="logout.php">Loguit</a>
-  </li>
+  </li>';
+  }
+  ?>
+
   <!-- else show login / register -->
-  <?php else: ?>
-  <li class="navbar-nav ms-auto">
-    <a class="nav-link" href="login.php">Login</a>
-  </li>
-  <li class="nav-item active">
-    <a class="nav-link" href="register.php">Registreren</a>
-  </li>
-  <?php endif; ?>
+<?php
+// checks if $_SESSION['company'] esists
+if (!isset($_SESSION['email'])) {
+    echo '<li class="navbar-nav ms-auto">
+      <a class="nav-link" href="login.php">Login</a>
+    </li>
+    <li class="nav-item active">
+      <a class="nav-link" href="register.php">Registreren</a>
+    </li>';
+  }
+?>
 
 </nav>
 </div>
