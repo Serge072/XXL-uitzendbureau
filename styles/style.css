@@ -10,10 +10,19 @@
     margin-top: 25px;
 }
 
+.sm-padding {
+    padding: 10px;
+}
+
 .sm-padding-bottom {
     padding-bottom: 10px;
 }
 
 .m-padding-bottom {
     padding-bottom: 25px;
+}
+
+/* removes horizontal scroll bar */
+body {
+    overflow-x: hidden;
 }
