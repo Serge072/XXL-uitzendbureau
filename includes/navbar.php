@@ -1,11 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<?php
-include "includes/header.php";
-?>
-
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <!-- logo in navbar linking to homepage/index -->
+    <nav class="navbar navbar-expand-sm bg-light">
         <a class="navbar-brand" href="#"> <a href="index.php"> <img src="images/logoplaceholder.jpg"
                     style="width:50px;height:50px;"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
@@ -19,15 +14,19 @@ include "includes/header.php";
                         <div class="dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <!-- select languages in the dropdown menu -->
                                 Talen
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="#">Nederlands</a>
+                                    <a class="dropdown-item" href="#">French</a>
                                     <a class="dropdown-item" href="#">English</a>
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="#">French</a>
+                                    <a class="dropdown-item" href="#">Nederlands</a>
                                 </div>
+                        </div>
+                </div>
             </li>
             </div>
+            <!-- seperate options on the navbar -->
             <li class="nav-item active">
                 <a class="nav-link" href="#">File</a>
             </li>
@@ -37,25 +36,26 @@ include "includes/header.php";
             <li class="nav-item">
                 <a class="nav-link" href="#">Help</a>
             </li>
+            <!-- if logged in show profile / logout -->
+            <?php if (isset($_SESSION["logged_in"])): ?>
+            <li class="navbar-nav ms-auto">
+                <a class="nav-link" href="profiel.php">Profiel</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="logout.php">Loguit</a>
+            </li>
+            <!-- else show login / register -->
+            <?php else: ?>
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="login.php">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="register.php">registreren</a>
+                </li>
             </ul>
-            </div>
     </nav>
-    <?php
-    /* if logged in */
-    // if (isset($_SESSION["useruid"])) {
-    //     echo "<a href='profile.php'>Profiel pagina</a>";
-    //     echo "<a href='includes/logout.inc.php'>Log uit</a>";
-    // }
-    /* if not */
-    // else {
-    //     echo "<a href='login.php'>Login</a>";
-    //     echo "<a href='signup.php'>Registreren</a>";
-    // }
-    ?>
-    </div>
-    <?php
-    include "includes/footer.php";
-    ?>
+    <?php endif; ?>
 </body>
 
 </html>
