@@ -1,15 +1,12 @@
 <?php
-  //create database connection
-  include("includes/conn.php");
-  
-  // Start the session
-  session_start();
+include "includes/header.php";
+include "includes/navbar.php";
 
-  // If the user is already logged in, redirect them to the dashboard
-  if (isset($_SESSION['username'])) {
-    header('Location: index.php');
-    exit;
-  }
+// If the user is already logged in, redirect them to the dashboard
+if (isset($_SESSION['username'])) {
+  header('Location: index.php');
+  exit;
+}
 ?>
 
 
