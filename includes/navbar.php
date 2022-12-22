@@ -1,10 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<?php
-include "includes/header.php";
-?>
 
-<body>
+<?php
+include_once 'includes/conn.php';
+session_start();
+$permission = $_SESSION['permission'];
+?>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="#"> <a href="index.php"> <img src="images/logoplaceholder.jpg"
                     style="width:50px;height:50px;"></a>
@@ -37,6 +36,10 @@ include "includes/header.php";
             <li class="nav-item">
                 <a class="nav-link" href="#">Help</a>
             </li>
+            <?php if ($permission == 'company') {
+                echo '<li class="nav item"><a href="voorlichting.php">Vactuur</a></li>';
+            }
+                ?>
             </ul>
             </div>
     </nav>
