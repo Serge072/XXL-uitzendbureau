@@ -1,6 +1,6 @@
 <?php
 //create database connection
-include("includes/databaselink.php");
+include("includes/conn.php");
   // Start the session
   session_start();
 
@@ -18,7 +18,7 @@ include("includes/databaselink.php");
   <input type="password" id="password" name="password"><br><br>
   <input type="submit" value="Submit">
   <button type="submit"><a href="register.php">Register</a></button>
-</form> 
+</form>
 
 
 <?php
@@ -46,8 +46,7 @@ include("includes/databaselink.php");
       exit;
     } else {
       // The login was unsuccessful
-      echo '<p>Incorrect Email or password</p>';
+      echo '<p>Fout Email of wachtwoord.</p>';
     }
   }
 ?>
-

@@ -1,6 +1,6 @@
 <?php
 // Connect to the database
-include("includes/databaselink.php");
+include("includes/conn.php");
 session_start();
 // Check for a POST request
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -15,6 +15,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 // Redirect the user to the login page
 header('Location: chat.php');
-
 
 ?>

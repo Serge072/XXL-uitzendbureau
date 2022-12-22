@@ -1,6 +1,6 @@
 <?php
   //create database connection
-    include("includes/databaselink.php");
+  include("includes/conn.php");
   
   // Start the session
   session_start();
@@ -35,7 +35,7 @@
   </select>
   <br><br>
   <input type="submit" value="Submit">
-</form> 
+</form>
 
 
 
@@ -66,5 +66,3 @@
     }
   }
 ?>
-
-
