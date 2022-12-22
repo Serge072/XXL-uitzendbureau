@@ -7,7 +7,7 @@ include_once "includes/conn.php";
 <div class="container m-margin-top">
   <!-- job offers -->
   <?php
-    $sql = "SELECT job, business, category, date, education, duration, salary, description FROM jobOffers";
+    $sql = "SELECT job, business, category, date, education, duration, salary, description FROM joboffers";
     
     $result = $conn->query($sql);
     

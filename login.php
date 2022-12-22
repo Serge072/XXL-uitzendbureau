@@ -1,14 +1,12 @@
 <?php
-//create database connection
-include("includes/conn.php");
-  // Start the session
-  session_start();
+include "includes/header.php";
+include "includes/navbar.php";
 
-  // If the user is already logged in, redirect them to the dashboard
-  if (isset($_SESSION['email'])) {
-    header('Location: index.php');
-    exit;
-  }
+// If the user is already logged in, redirect them to the dashboard
+if (isset($_SESSION['email'])) {
+  header('Location: index.php');
+  exit;
+}
 ?>
 
 <form action="login.php" method="post">
@@ -40,6 +38,8 @@ include("includes/conn.php");
         $_SESSION['email'] = $row["email"];
         $_SESSION['logged_in'] = true;
         $_SESSION['permission'] = $row["permissions"];
+        $_SESSION['creatorID'] = $row["id"];
+        $_SESSION['company'] = $row["company_name"];
       }
 
       // Redirect to the dashboard
